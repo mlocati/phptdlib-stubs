@@ -1,2 +1,3 @@
-# phptdlib-stubs
-PHP tdlib Stubs for IDE
+```bash
+composer require phptdlib/phptdlib-stubs:@dev
+```
