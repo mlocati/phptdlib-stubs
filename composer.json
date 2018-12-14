@@ -1,0 +1,16 @@
+{
+  "name": "phptdlib/phptdlib-stubs",
+  "description": "PHP tdlib Stubs for IDE",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "maxvgi",
+      "email": "leontyevmax@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "ext-tdlib": "*"
+  }
+}
