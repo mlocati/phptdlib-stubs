@@ -2,6 +2,7 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
+use Behat\Gherkin\Node\PyStringNode;
 use PHPUnit\Framework\Assert;
 
 class TDLibFunctionsContext implements Context
@@ -10,6 +11,7 @@ class TDLibFunctionsContext implements Context
      * @var \TDLib\BaseJsonClient|null $client
      */
     private $client;
+    private $parametersQuery;
     private $result;
 
     /**
@@ -30,28 +32,19 @@ class TDLibFunctionsContext implements Context
     }
 
     /**
-     * @Given I call function td_json_client_execute with query :query
-     * @param string $query
+     * @Given I call function td_json_client_execute with query:
+     * @param PyStringNode $query
      */
-    public function iCallFunctionTdJsonClientExecuteWithQuery(string $query)
+    public function iCallFunctionTdJsonClientExecuteWithQuery(PyStringNode $query)
     {
         $this->result = td_json_client_execute($this->client, $query);
-        Assert::assertSame($this->result, '{"@type":"error","code":400,"message":"Function can\'t be executed synchronously"}');
     }
 
     /**
-     * @Given wait :seconds seconds
-     * @param float $seconds
+     * @Given I call function td_json_client_send with query:
+     * @param PyStringNode $query
      */
-    public function waitSeconds(float $seconds = 0.5)
-    {
-        usleep($seconds * 10 ^ 6);
-    }
-
-    /**
-     * @Given I call function td_json_client_send with query :query
-     */
-    public function iCallFunctionTdJsonClientSendWithQuery(string $query)
+    public function iCallFunctionTdJsonClientSendWithQuery(PyStringNode $query)
     {
         td_json_client_send($this->client, $query);
     }
@@ -61,7 +54,7 @@ class TDLibFunctionsContext implements Context
      */
     public function iCallFunctionTdJsonClientReceive()
     {
-        $this->result = td_json_client_receive($this->client, 1);
+        $this->result = td_json_client_receive($this->client, 0);
     }
 
     /**
