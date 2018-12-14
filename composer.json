@@ -7,10 +7,20 @@
     {
       "name": "maxvgi",
       "email": "leontyevmax@gmail.com"
+    },
+    {
+      "name": "yaroslavche",
+      "email": "yaroslav429@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "TDLib\\": "TDLib",
+      "TDApi\\": "TDApi"
+    }
+  },
   "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "ext-tdlib": "*"
   }
 }
