@@ -13,14 +13,12 @@
       "email": "yaroslav429@gmail.com"
     }
   ],
-  "autoload": {
-    "psr-4": {
-      "TDLib\\": "TDLib",
-      "TDApi\\": "TDApi"
-    }
-  },
   "require": {
     "php": "^7.1",
     "ext-tdlib": "*"
+  },
+  "require-dev": {
+    "behat/behat": "^3.5",
+    "phpunit/phpunit": "^7.5"
   }
 }
