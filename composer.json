@@ -1,6 +1,7 @@
 {
   "name": "phptdlib/phptdlib-stubs",
-  "description": "PHP tdlib Stubs for IDE",
+  "keywords": ["telegram", "tdlib", "phptdlib", "php7"],
+  "description": "https://github.com/yaroslavche/phptdlib stubs for IDE",
   "type": "library",
   "license": "MIT",
   "authors": [
