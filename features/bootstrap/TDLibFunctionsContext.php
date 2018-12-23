@@ -1,17 +1,19 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use PHPUnit\Framework\Assert;
 
+/**
+ * Class TDLibFunctionsContext
+ * @todo: TDLibFunctions must extends BaseJsonClientContext
+ */
 class TDLibFunctionsContext implements Context
 {
     /**
      * @var \TDLib\BaseJsonClient|null $client
      */
     private $client;
-    private $parametersQuery;
     private $result;
 
     /**
@@ -20,15 +22,6 @@ class TDLibFunctionsContext implements Context
     public function iCallFunctionTdJsonClientCreate()
     {
         $this->client = td_json_client_create();
-    }
-
-    /**
-     * @Then client must be :type
-     * @param string $type
-     */
-    public function clientMustBe(string $type)
-    {
-        Assert::assertSame(get_class($this->client), $type);
     }
 
     /**
@@ -70,10 +63,6 @@ class TDLibFunctionsContext implements Context
      */
     public function iCallFunctionTdJsonClientDestroy()
     {
-        try {
-            td_json_client_destroy($this->client);
-        } catch (Exception $exception) {
-            var_dump($this->client);
-        }
+        td_json_client_destroy($this->client);
     }
 }
